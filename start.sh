@@ -9,4 +9,7 @@ docker build -t nginx-image ./nginx
 # docker build -t nginx-image ./wordpress
 # docker build -t nginx-image ./phpmyadmin
 kubectl apply -f ./nginx/nginx.yaml
+kubectl apply -f ./kustomization.yaml
+kubectl apply -f ./metallb_configmap.yamlyaml
+kubectl apply -f ./secret.yaml
 minikube dashboard
