@@ -1,0 +1,1 @@
+minikube start --vm-driver=$driver  --bootstrapper=kubeadm
