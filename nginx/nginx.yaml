@@ -33,10 +33,6 @@ spec:
       protocol: TCP
       port: 443
       targetPort: 443
-    - name: ssh
-      protocol: TCP
-      port: 22
-      targetPort: 22
   selector:
     app: ft-services
     tier: nginx

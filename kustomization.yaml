@@ -3,4 +3,4 @@ resources:
   # - nginx-wordpress.yaml
   # - nginx-phpmyadmin.yaml
   # - metallb_configmap.yaml
-# - mysql.yaml
+  # - mysql.yaml

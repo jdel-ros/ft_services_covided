@@ -1,5 +1,7 @@
 #!/bin/sh
-minikube start --driver=docker
+minikube start --vm-driver=virtualbox \
+        --cpus 3 --disk-size=19080mb --memory=1908mb \
+        --extra-config=apiserver.service-node-port-range=1-32767
 eval $(minikube docker-env)
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
@@ -10,6 +12,6 @@ docker build -t nginx-image ./nginx
 # docker build -t nginx-image ./phpmyadmin
 kubectl apply -f ./nginx/nginx.yaml
 kubectl apply -f ./kustomization.yaml
-kubectl apply -f ./metallb_configmap.yamlyaml
+kubectl apply -f ./metallb.yaml
 kubectl apply -f ./secret.yaml
 minikube dashboard
