@@ -1,4 +1,5 @@
 #!/bin/sh
+# minikube start
 minikube start --vm-driver=virtualbox \
         --cpus 3 --disk-size=19080mb --memory=1908mb \
         --extra-config=apiserver.service-node-port-range=1-32767
@@ -8,9 +9,10 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manife
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 # kubectl addons enable ingress
 docker build -t nginx-image ./nginx
-# docker build -t nginx-image ./wordpress
+docker build -t wordpress-image ./wordpress
 # docker build -t nginx-image ./phpmyadmin
 kubectl apply -f ./nginx/nginx.yaml
+kubectl apply -f ./wordpress/wordpress.yaml
 kubectl apply -f ./kustomization.yaml
 kubectl apply -f ./metallb.yaml
 kubectl apply -f ./secret.yaml

@@ -1,0 +1,41 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  annotations:
+    metallb.universe.tf/address-pool: default
+    metallb.universe.tf/allow-shared-ip: shared
+spec:
+  selector:
+    app: wordpress
+  type: LoadBalancer
+  ports:
+    - name: https
+      protocol: TCP
+      port: 5050
+      targetPort: 5050
+---
+apiVersion: apps/v1 #Quelle version de l'API Kubernetes vous utilisez pour créer cet objet
+kind: Deployment #Quel type d'objet vous souhaitez créer
+metadata: #Données qui aident à identifier l'objet de manière unique, y compris une namechaîne UID, et facultatifnamespace
+  name: wordpress-deployment
+  labels:
+    app: ft-services
+spec: #Quel état vous désirez pour l'objet
+  selector:
+    matchLabels: #indique à quels pods le déploiement s'appliquera
+      app: ft-services
+      tier: wordpress
+  strategy:
+    type: Recreate #redemarrage auto niquel!
+  template:
+    metadata:
+      labels:
+        app: ft-services
+        tier: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress-image
+        imagePullPolicy: Never
