@@ -1,6 +1,5 @@
 resources:
-  - nginx.yaml
-  - wordpress.yaml
-  # - nginx-phpmyadmin.yaml
-  # - metallb_configmap.yaml
+  - nginx/nginx.yaml
+  - wordpress/wordpress.yaml
+  - metallb.yaml
   # - mysql.yaml
