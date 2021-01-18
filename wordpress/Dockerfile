@@ -1,4 +1,4 @@
-FROM	alpine:latest
+FROM	alpine:3.12
 
 RUN 	apk update && apk add nginx \
 && apk add openrc openssl openssh
@@ -8,7 +8,7 @@ RUN apk update \
 	php7-mbstring php7-json php7-session mysql-client
 
 RUN		mkdir /run/nginx /www && \
-		chown -R nginx:nginx /www 
+		chown -R nginx:nginx /www
 
 RUN mkdir -p /etc/nginx/ssl && openssl req -newkey rsa:2048 -x509 -days 365 -nodes -keyout /etc/nginx/ssl/services.key -out /etc/nginx/ssl/services.pem -subj "/C=FR/ST=Lyon/L=Lyon/O=42, Inc./OU=IT/CN=ft_services"
 
