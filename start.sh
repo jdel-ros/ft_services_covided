@@ -10,6 +10,7 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 # kubectl addons enable ingress
 docker build -t nginx-image ./nginx
 docker build -t wordpress-image ./wordpress
+docker build -t phpmyadmin-image ./phpmyadmin
 # kubectl apply -f ./nginx/nginx.yaml
 # kubectl apply -f ./wordpress/wordpress.yaml
 # kubectl apply -f ./kustomization.yaml
