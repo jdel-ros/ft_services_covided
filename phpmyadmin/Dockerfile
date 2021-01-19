@@ -11,7 +11,7 @@ RUN apk update && apk add nginx && apk add wget ; \
 RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz ; \
 			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz ; \
         	rm phpMyAdmin-5.0.2-all-languages.tar.gz ; \
-			mv phpMyAdmin-5.0.2-all-languages var/www/phpmyadmin
+		mv phpMyAdmin-5.0.2-all-languages var/www/phpmyadmin
 
 RUN mkdir -p var/run/nginx
 COPY ./srcs/nginx.conf /etc/nginx/nginx.conf

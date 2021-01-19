@@ -20,19 +20,19 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'db_wordpress' );
+define( 'DB_NAME', 'database_name_here' );
 
 /** MySQL database username */
-define( 'DB_USER', 'wp_user' );
+define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'password' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'mysql-svc.default.svc.cluster.local' );
+define( 'DB_HOST', 'localhost' );
 
 /** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
+define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'SA:zy-GQV/455@_LfIW;OKWn[a}(9L0_4Fr7^3J;%V<cYO+A=8pT7J:PsAu1VnT1' );
-define( 'SECURE_AUTH_KEY',  'GL.9(T!j6Dmg/Obubt;iP(7o-faMPp)+4im>9Oo.&BO?@D3z=d(]IOG^|L?_U.g<' );
-define( 'LOGGED_IN_KEY',    '~4*rF41a/PdV,?V{_65bs2o`%{*w /KU%GzwZ-<!=WLuXL#Nar0{,ET}V$_DA5 h' );
-define( 'NONCE_KEY',        'kU?|Xch61-P:T!FP%I0_Pi2-LVoyQt#a:oeCPi/Rcqv=4tSRkRf K+Tx.8a[QU2F' );
-define( 'AUTH_SALT',        '1KZ`MZjFI`@v/3lP,+Dg`S3!  vNTJpGg9E9VF`QfRg>cVs;@RgYV:T5m_?|<I:o' );
-define( 'SECURE_AUTH_SALT', 'f*f[`al=fdHkdX$|@hO(6C~XK4it1^Uzp|f?fIY*5ZS.4>*TL7~#R390_)gM~CW=' );
-define( 'LOGGED_IN_SALT',   'f4yj)>&0HKd.!Kh-GKNh#(2*wf;MfwezXXe(`J0^2Q^cEIrjbc}0s$ZmQDC<>^b?' );
-define( 'NONCE_SALT',       'S:;p9D&LO5#Eg/ItzJ)%!iei 3)s@<D(ELc5CVS|>4^-iBt=64p:DCDDBJL{(2aT' );
+define( 'AUTH_KEY',         'salut moi c maxime et ce projet' );
+define( 'SECURE_AUTH_KEY',  'je laime trop je nest pas passer' );
+define( 'LOGGED_IN_KEY',    'une semaine sur wordpress c faut' );
+define( 'NONCE_KEY',        'du coup la normalement il y a ecrit' );
+define( 'AUTH_SALT',        'put your unique phrase here' );
+define( 'SECURE_AUTH_SALT', 'du coup je put plein de phrase' );
+define( 'LOGGED_IN_SALT',   'normalement elles sont unique vue' );
+define( 'NONCE_SALT',       'aue je fais plein de faute merci' );
 
 /**#@-*/
 

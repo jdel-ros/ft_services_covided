@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpmyadmin-svc
+  name: phpmyadmin
   annotations:
     metallb.universe.tf/address-pool: default
     metallb.universe.tf/allow-shared-ip: shared
@@ -15,26 +15,40 @@ spec:
       port: 5000
       targetPort: 5000
 ---
-apiVersion: apps/v1 #Quelle version de l'API Kubernetes vous utilisez pour créer cet objet
-kind: Deployment #Quel type d'objet vous souhaitez créer
-metadata: #Données qui aident à identifier l'objet de manière unique, y compris une namechaîne UID, et facultatifnamespace
-  name: nginx-phpmyadmin-deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin-deployment
   labels:
-    app: ft-services
-spec: #Quel état vous désirez pour l'objet
+    app: phpmyadmin
+spec:
+  replicas: 1
   selector:
-    matchLabels: #indique à quels pods le déploiement s'appliquera
-      app: ft-services
-      tier: nginx-phpmyadmin
-  strategy:
-    type: Recreate #redemarrage auto niquel!
+    matchLabels:
+      app: phpmyadmin
   template:
     metadata:
       labels:
-        app: ft-services
-        tier: nginx-phpmyadmin
+        app: phpmyadmin
     spec:
       containers:
-      - name: nginx
+      - name: phpmyadmin
         image: phpmyadmin-image
         imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 15 #Kubelet qu'il devrait attendre 5 secondes avant d'effectuer la première probe
+          periodSeconds: 5 #Kubelet doit effectuer un check de liveness toutes les 5 secondes
+        env:
+        - name: PMA_HOST
+          value: mysql
+        - name: PMA_PORT
+          value: '3306'
+        - name: PMA_USER
+          value: root
+        - name: MYSQL_ROOT_PASSWORD
+          value: password

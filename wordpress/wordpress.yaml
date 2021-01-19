@@ -1,4 +1,3 @@
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -16,26 +15,35 @@ spec:
       port: 5050
       targetPort: 5050
 ---
-apiVersion: apps/v1 #Quelle version de l'API Kubernetes vous utilisez pour créer cet objet
-kind: Deployment #Quel type d'objet vous souhaitez créer
-metadata: #Données qui aident à identifier l'objet de manière unique, y compris une namechaîne UID, et facultatifnamespace
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: wordpress-deployment
   labels:
-    app: ft-services
-spec: #Quel état vous désirez pour l'objet
+    app: wordpress
+spec:
   selector:
-    matchLabels: #indique à quels pods le déploiement s'appliquera
-      app: ft-services
-      tier: wordpress
+    matchLabels:
+      app: wordpress
+      tier: frontend
   strategy:
-    type: Recreate #redemarrage auto niquel!
+    type: Recreate
   template:
     metadata:
       labels:
-        app: ft-services
-        tier: wordpress
+        app: wordpress
+        tier: frontend
     spec:
       containers:
       - name: wordpress
         image: wordpress-image
         imagePullPolicy: Never
+        ports:
+        - containerPort: 5050
+          name: wordpress
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5050
+          initialDelaySeconds: 15 #Kubelet qu'il devrait attendre 15 secondes avant d'effectuer la première probe
+          periodSeconds: 5 #Kubelet doit effectuer un check de liveness toutes les 5 secondes
