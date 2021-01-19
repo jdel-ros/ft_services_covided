@@ -8,17 +8,15 @@ RUN apk update && apk add nginx && apk add wget ; \
         apk add php7-session ; \
 		apk add openrc openssl openssh
 
+RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz ; \
+			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz ; \
+        	rm phpMyAdmin-5.0.2-all-languages.tar.gz ; \
+			mv phpMyAdmin-5.0.2-all-languages var/www/phpmyadmin
+
 RUN mkdir -p var/run/nginx
 COPY ./srcs/nginx.conf /etc/nginx/nginx.conf
-
 RUN		openssl req -x509 -nodes -subj '/CN=localhost' -days 365 -newkey rsa:4096 \
 		 -keyout /etc/ssl/private/server.key -out /etc/ssl/certs/server.crt
-
-RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz \
-	&& tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz \
-	&& rm phpMyAdmin-5.0.2-all-languages.tar.gz \
-	&& mv phpMyAdmin-5.0.2-all-languages /usr/share/phpmyadmin \
-	&& rm -rf /var/cache/apk/*
 
 COPY srcs/config.inc.php /var/www/phpmyadmin/config.inc.php
 
