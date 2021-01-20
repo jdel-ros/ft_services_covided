@@ -3,4 +3,4 @@ resources:
   - wordpress/wordpress.yaml
   - phpmyadmin/phpmyadmin.yaml
   - metallb.yaml
-  # - mysql.yaml
+  - mysql/mysql.yaml

@@ -6,7 +6,7 @@
 #    By: manaccac <manaccac@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/18 13:47:40 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/01/19 12:22:26 by manaccac         ###   ########lyon.fr    #
+#    Updated: 2021/01/20 09:55:58 by manaccac         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ RUN 	wget -q https://wordpress.org/latest.tar.gz
 RUN		tar xzf latest.tar.gz -C /www/
 
 ADD		srcs/setup.sh .
-RUN		chmod +x setup.sh
-#ADD		srcs/wp-config.php /www/wordpress/.
+RUN		chmod 777 setup.sh
+ADD		srcs/wp-config.php /www/wordpress/.
 
 EXPOSE	5050
 

@@ -21,7 +21,7 @@ RUN		openssl req -x509 -nodes -subj '/CN=localhost' -days 365 -newkey rsa:4096 \
 COPY srcs/config.inc.php /var/www/phpmyadmin/config.inc.php
 
 ADD		srcs/setup.sh .
-RUN		chmod +x setup.sh
+RUN		chmod 777 setup.sh
 
 EXPOSE 5000
 

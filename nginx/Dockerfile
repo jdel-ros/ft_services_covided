@@ -13,7 +13,7 @@ ADD		srcs/nginx.conf /etc/nginx/
 ADD		srcs/index.html	/www/
 ADD		srcs/sshd_conf etc/ssh/
 ADD		srcs/setup.sh .
-RUN		chmod +x setup.sh
+RUN		chmod 777 setup.sh
 
 EXPOSE	80 443 22
 
