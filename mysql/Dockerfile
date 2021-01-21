@@ -1,17 +1,18 @@
-FROM	alpine:3.12
+FROM	alpine:3.12.3
 
-RUN apk update ; \
-	apk add openrc ; \
-	update openrc ; \
-	apk add mysql mysql-client ; \
-	rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /run/mysqld ; \
-	chown -R mysql:mysql /run/mysqld /var/lib/mysql ; \
-	chmod 777 /var/run/mysqld /var/lib/mysql
+#update and install utils
+RUN apk update
+RUN apk add openrc
+#install MySQL
+RUN apk add mariadb mariadb-client
+
+RUN rc-status
+RUN touch /run/openrc/softlevel
+
+
+
 
 ADD		srcs/setup.sh .
-ADD		srcs/creatdb.sql /creatdb.sql
-ADD		srcs/my.cnf /etc/my.cnf
-ADD		srcs/wordpress.sql .
 RUN		chmod 777 setup.sh
 
 EXPOSE 3306

@@ -6,11 +6,11 @@
 #    By: manaccac <manaccac@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/18 13:47:40 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/01/20 09:55:58 by manaccac         ###   ########lyon.fr    #
+#    Updated: 2021/01/20 13:13:04 by manaccac         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-FROM	alpine:3.12
+FROM	alpine:3.12.3
 
 RUN apk update ; \
 	apk add wget nginx openssl openrc php7 php7-fpm php7-opcache ; \

@@ -9,9 +9,9 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manife
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 # kubectl addons enable ingress
 docker build -t nginx-image ./nginx
+docker build -t mysql-image ./mysql
 docker build -t wordpress-image ./wordpress
 docker build -t phpmyadmin-image ./phpmyadmin
-docker build -t mysql-image ./mysql
 # kubectl apply -f ./nginx/nginx.yaml
 # kubectl apply -f ./wordpress/wordpress.yaml
 # kubectl apply -f ./kustomization.yaml
