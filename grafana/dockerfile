@@ -1,0 +1,14 @@
+FROM	alpine:3.12.3
+
+RUN apk update
+RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+RUN apk add grafana
+RUN apk add telegraf
+
+
+ADD		srcs/setup.sh .
+RUN		chmod 777 setup.sh
+
+EXPOSE 3000
+
+CMD		[ "/bin/ash", "/setup.sh" ]

@@ -4,3 +4,5 @@ resources:
   - phpmyadmin/phpmyadmin.yaml
   - metallb.yaml
   - mysql/mysql.yaml
+  - grafana/grafana.yaml
+  #- influxDB/influxDB.yaml
