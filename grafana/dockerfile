@@ -8,6 +8,7 @@ RUN apk add telegraf
 
 ADD		srcs/setup.sh .
 RUN		chmod 777 setup.sh
+ADD ./srcs/sample.yaml /usr/share/grafana/conf/provisioning/datasources/sample.yaml
 
 EXPOSE 3000
 
