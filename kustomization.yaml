@@ -5,4 +5,4 @@ resources:
   - metallb.yaml
   - mysql/mysql.yaml
   - grafana/grafana.yaml
-  #- influxDB/influxDB.yaml
+  - influxdb/influxdb.yaml

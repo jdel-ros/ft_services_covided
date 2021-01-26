@@ -12,6 +12,7 @@ spec:
     port: 8086
     protocol: TCP
     targetPort: 8086
+  type: ClusterIP
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

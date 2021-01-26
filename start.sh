@@ -13,7 +13,7 @@ docker build -t mysql-image ./mysql
 docker build -t wordpress-image ./wordpress
 docker build -t phpmyadmin-image ./phpmyadmin
 docker build -t grafana-image ./grafana
-#docker build -t influxdb-image ./influxDB
+docker build -t influxdb-image ./influxdb
 # kubectl apply -f ./nginx/nginx.yaml
 # kubectl apply -f ./wordpress/wordpress.yaml
 # kubectl apply -f ./kustomization.yaml
