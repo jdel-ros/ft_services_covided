@@ -19,6 +19,8 @@ RUN		openssl req -x509 -nodes -subj '/CN=localhost' -days 365 -newkey rsa:4096 \
 		 -keyout /etc/ssl/private/server.key -out /etc/ssl/certs/server.crt
 
 COPY srcs/config.inc.php /var/www/phpmyadmin/config.inc.php
+RUN mkdir /var/www/phpmyadmin/tmp
+RUN chmod 777 /var/www/phpmyadmin/tmp
 
 ADD		srcs/setup.sh .
 RUN		chmod 777 setup.sh
