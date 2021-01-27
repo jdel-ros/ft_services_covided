@@ -5,10 +5,10 @@ RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositor
 RUN apk add grafana
 RUN apk add telegraf
 
-
 ADD		srcs/setup.sh .
 RUN		chmod 777 setup.sh
-ADD ./srcs/sample.yaml /usr/share/grafana/conf/provisioning/datasources/sample.yaml
+ADD ./srcs/datasource.yaml /usr/share/grafana/conf/provisioning/datasources/
+ADD ./srcs/dashboard.yaml /usr/share/grafana/conf/provisioning/dashboard/
 
 EXPOSE 3000
 
