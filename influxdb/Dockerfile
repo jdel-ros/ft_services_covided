@@ -6,7 +6,7 @@
 #    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/26 08:27:38 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/01/26 10:05:46 by jdel-ros         ###   ########lyon.fr    #
+#    Updated: 2021/01/27 08:42:46 by jdel-ros         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ RUN apk add influxdb
 RUN apk add openrc
 RUN rc-status
 RUN touch /run/openrc/softlevel
-
 
 #add the community repo for the repositories packages file reference, telegraf exists in that repo
 RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
