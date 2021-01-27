@@ -3,11 +3,11 @@
 telegraf &
 nginx -g "daemon off;"
 
-while true;
-do
-	if ! pgrep telegraf ; then
-		exit 1
-	fi
-	sleep 2
-done
+# while true;
+# do
+# 	if ! pgrep telegraf ; then
+# 		exit 1
+# 	fi
+# 	sleep 2
+# done
 

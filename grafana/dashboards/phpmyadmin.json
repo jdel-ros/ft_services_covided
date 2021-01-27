@@ -103,7 +103,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "phpmyadmin"
 			  }
 			]
 		  }
@@ -193,7 +193,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "phpmyadmin"
 			  }
 			]
 		  }
@@ -288,7 +288,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "phpmyadmin"
 			  }
 			]
 		  }
@@ -347,7 +347,7 @@
 	},
 	"timepicker": {},
 	"timezone": "",
-	"title": "nginx",
+	"title": "phpmyadmin",
 	"uid": null,
 	"version": 1
   }

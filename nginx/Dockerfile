@@ -3,10 +3,10 @@ FROM	alpine:3.12.3
 RUN 	apk update && apk add nginx \
 && apk add openrc openssl openssh
 #telegraf
-RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-RUN apk add telegraf
-RUN mkdir /etc/telegraf 
-ADD srcs/telegraf.conf /etc/telegraf/
+# RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+# RUN apk add telegraf
+# RUN mkdir /etc/telegraf 
+# ADD srcs/telegraf.conf /etc/telegraf/
 
 RUN		mkdir /run/nginx /www && \
 		chown -R nginx:nginx /www

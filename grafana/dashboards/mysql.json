@@ -103,7 +103,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "mysql"
 			  }
 			]
 		  }
@@ -193,7 +193,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "mysql"
 			  }
 			]
 		  }
@@ -288,7 +288,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "mysql"
 			  }
 			]
 		  }
@@ -347,7 +347,7 @@
 	},
 	"timepicker": {},
 	"timezone": "",
-	"title": "nginx",
+	"title": "mysql",
 	"uid": null,
 	"version": 1
   }

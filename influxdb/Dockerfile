@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: juan <juan@student.42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/26 08:27:38 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/01/27 08:42:46 by jdel-ros         ###   ########lyon.fr    #
+#    Updated: 2021/01/27 17:10:44 by juan             ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,10 @@ RUN touch /run/openrc/softlevel
 
 #add the community repo for the repositories packages file reference, telegraf exists in that repo
 RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-RUN apk add telegraf 
-#edit config file for file to link it with InfluxDB
-RUN mkdir /etc/telegraf && \
-	cp -f /etc/telegraf.conf /etc/telegraf/telegraf.conf && \
-	sed -i 's|.*  hostname = "".*|  hostname = "influxdb"|' /etc/telegraf/telegraf.conf && \
-	sed -i 's|.*  # urls = \["http://127.0.0.1:8086"\].*|  urls = \["http://127.0.0.1:8086"\]|' /etc/telegraf/telegraf.conf && \
-	sed -i 's|^  # database = "telegraf"|  database = "influxdb"|' /etc/telegraf/telegraf.conf
+RUN apk add telegraf
+#telegraf
+RUN mkdir /etc/telegraf 
+ADD srcs/telegraf.conf /etc/telegraf/
 
 #install InfluxDB
 RUN mkdir /etc/influxdb

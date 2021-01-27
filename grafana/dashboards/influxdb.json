@@ -1,133 +1,353 @@
 {
-	"aliasColors": {},
-	"bars": false,
-	"dashLength": 10,
-	"dashes": false,
-	"fieldConfig": {
-	  "defaults": {
-		"custom": {}
-	  },
-	  "overrides": []
+	"annotations": {
+	  "list": [
+		{
+		  "builtIn": 1,
+		  "datasource": "-- Grafana --",
+		  "enable": true,
+		  "hide": true,
+		  "iconColor": "rgba(0, 211, 255, 1)",
+		  "name": "Annotations & Alerts",
+		  "type": "dashboard"
+		}
+	  ]
 	},
-	"fill": 1,
-	"fillGradient": 0,
-	"gridPos": {
-	  "h": 9,
-	  "w": 12,
-	  "x": 0,
-	  "y": 0
-	},
-	"hiddenSeries": false,
+	"editable": true,
+	"gnetId": null,
+	"graphTooltip": 0,
 	"id": 2,
-	"legend": {
-	  "avg": false,
-	  "current": false,
-	  "max": false,
-	  "min": false,
-	  "show": true,
-	  "total": false,
-	  "values": false
-	},
-	"lines": true,
-	"linewidth": 1,
-	"nullPointMode": "null",
-	"options": {
-	  "alertThreshold": true
-	},
-	"percentage": false,
-	"pluginVersion": "7.3.7",
-	"pointradius": 2,
-	"points": false,
-	"renderer": "flot",
-	"seriesOverrides": [],
-	"spaceLength": 10,
-	"stack": false,
-	"steppedLine": false,
-	"targets": [
+	"links": [],
+	"panels": [
 	  {
-		"groupBy": [
-		  {
-			"params": [
-			  "$__interval"
+		"datasource": "influxdb",
+		"description": "",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			},
+			"unit": "decbytes"
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 8,
+		  "w": 12,
+		  "x": 0,
+		  "y": 0
+		},
+		"id": 6,
+		"options": {
+		  "colorMode": "value",
+		  "graphMode": "area",
+		  "justifyMode": "auto",
+		  "orientation": "auto",
+		  "reduceOptions": {
+			"calcs": [
+			  "mean"
 			],
-			"type": "time"
+			"fields": "",
+			"values": false
+		  },
+		  "textMode": "auto"
+		},
+		"pluginVersion": "7.3.7",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "null"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "mem",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"used"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "mean"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "host",
+				"operator": "=",
+				"value": "influxdb"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Used Memory",
+		"type": "stat"
+	  },
+	  {
+		"datasource": "influxdb",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {},
+			"mappings": [],
+			"thresholds": {
+			  "mode": "absolute",
+			  "steps": [
+				{
+				  "color": "green",
+				  "value": null
+				},
+				{
+				  "color": "red",
+				  "value": 80
+				}
+			  ]
+			}
+		  },
+		  "overrides": []
+		},
+		"gridPos": {
+		  "h": 8,
+		  "w": 12,
+		  "x": 0,
+		  "y": 8
+		},
+		"id": 4,
+		"options": {
+		  "reduceOptions": {
+			"calcs": [
+			  "mean"
+			],
+			"fields": "",
+			"values": false
+		  },
+		  "showThresholdLabels": false,
+		  "showThresholdMarkers": true
+		},
+		"pluginVersion": "7.3.7",
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "null"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "disk",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"used_percent"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "mean"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "host",
+				"operator": "=",
+				"value": "influxdb"
+			  }
+			]
+		  }
+		],
+		"timeFrom": null,
+		"timeShift": null,
+		"title": "Used Storage (%)",
+		"type": "gauge"
+	  },
+	  {
+		"aliasColors": {},
+		"bars": false,
+		"dashLength": 10,
+		"dashes": false,
+		"datasource": "influxdb",
+		"fieldConfig": {
+		  "defaults": {
+			"custom": {}
+		  },
+		  "overrides": []
+		},
+		"fill": 1,
+		"fillGradient": 0,
+		"gridPos": {
+		  "h": 9,
+		  "w": 12,
+		  "x": 0,
+		  "y": 16
+		},
+		"hiddenSeries": false,
+		"id": 2,
+		"legend": {
+		  "avg": false,
+		  "current": false,
+		  "max": false,
+		  "min": false,
+		  "show": true,
+		  "total": false,
+		  "values": false
+		},
+		"lines": true,
+		"linewidth": 1,
+		"nullPointMode": "null",
+		"options": {
+		  "alertThreshold": true
+		},
+		"percentage": false,
+		"pluginVersion": "7.3.7",
+		"pointradius": 2,
+		"points": false,
+		"renderer": "flot",
+		"seriesOverrides": [],
+		"spaceLength": 10,
+		"stack": false,
+		"steppedLine": false,
+		"targets": [
+		  {
+			"groupBy": [
+			  {
+				"params": [
+				  "10s"
+				],
+				"type": "time"
+			  },
+			  {
+				"params": [
+				  "null"
+				],
+				"type": "fill"
+			  }
+			],
+			"measurement": "cpu",
+			"orderByTime": "ASC",
+			"policy": "default",
+			"refId": "A",
+			"resultFormat": "time_series",
+			"select": [
+			  [
+				{
+				  "params": [
+					"usage_user"
+				  ],
+				  "type": "field"
+				},
+				{
+				  "params": [],
+				  "type": "mean"
+				}
+			  ]
+			],
+			"tags": [
+			  {
+				"key": "host",
+				"operator": "=",
+				"value": "influxdb"
+			  }
+			]
+		  }
+		],
+		"thresholds": [],
+		"timeFrom": null,
+		"timeRegions": [],
+		"timeShift": null,
+		"title": "CPU",
+		"tooltip": {
+		  "shared": true,
+		  "sort": 0,
+		  "value_type": "individual"
+		},
+		"type": "graph",
+		"xaxis": {
+		  "buckets": null,
+		  "mode": "time",
+		  "name": null,
+		  "show": true,
+		  "values": []
+		},
+		"yaxes": [
+		  {
+			"format": "short",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": null,
+			"show": true
 		  },
 		  {
-			"params": [
-			  "null"
-			],
-			"type": "fill"
+			"format": "short",
+			"label": null,
+			"logBase": 1,
+			"max": null,
+			"min": null,
+			"show": true
 		  }
 		],
-		"measurement": "cpu",
-		"orderByTime": "ASC",
-		"policy": "default",
-		"query": "SELECT mean(\"usage_system\") FROM \"cpu\" WHERE (\"host\" = 'influxdb') AND $timeFilter GROUP BY time($__interval) fill(null)",
-		"rawQuery": false,
-		"refId": "A",
-		"resultFormat": "time_series",
-		"select": [
-		  [
-			{
-			  "params": [
-				"usage_system"
-			  ],
-			  "type": "field"
-			},
-			{
-			  "params": [],
-			  "type": "mean"
-			}
-		  ]
-		],
-		"tags": [
-		  {
-			"key": "host",
-			"operator": "=",
-			"value": "influxdb"
-		  }
-		]
+		"yaxis": {
+		  "align": false,
+		  "alignLevel": null
+		}
 	  }
 	],
-	"thresholds": [],
-	"timeFrom": null,
-	"timeRegions": [],
-	"timeShift": null,
+	"schemaVersion": 26,
+	"style": "dark",
+	"tags": [],
+	"templating": {
+	  "list": []
+	},
+	"time": {
+	  "from": "now-6h",
+	  "to": "now"
+	},
+	"timepicker": {},
+	"timezone": "",
 	"title": "influxdb",
-	"tooltip": {
-	  "shared": true,
-	  "sort": 0,
-	  "value_type": "individual"
-	},
-	"type": "graph",
-	"xaxis": {
-	  "buckets": null,
-	  "mode": "time",
-	  "name": null,
-	  "show": true,
-	  "values": []
-	},
-	"yaxes": [
-	  {
-		"format": "short",
-		"label": null,
-		"logBase": 1,
-		"max": null,
-		"min": null,
-		"show": true
-	  },
-	  {
-		"format": "short",
-		"label": null,
-		"logBase": 1,
-		"max": null,
-		"min": null,
-		"show": true
-	  }
-	],
-	"yaxis": {
-	  "align": false,
-	  "alignLevel": null
-	},
-	"datasource": null
+	"uid": null,
+	"version": 1
   }

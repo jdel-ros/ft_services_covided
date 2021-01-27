@@ -9,10 +9,10 @@ RUN apk update && apk add nginx && apk add wget ; \
 		apk add openrc openssl openssh
 
 #telegraf
-# RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-# RUN apk add telegraf
-# RUN mkdir /etc/telegraf 
-# ADD srcs/telegraf.conf /etc/telegraf/
+RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+RUN apk add telegraf
+RUN mkdir /etc/telegraf 
+ADD srcs/telegraf.conf /etc/telegraf/
 
 RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz ; \
 			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz ; \

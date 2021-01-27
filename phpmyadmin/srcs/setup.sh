@@ -1,4 +1,4 @@
 #!/bin/sh
 /usr/sbin/php-fpm7
-# telegraf &
+telegraf &
 nginx -g "daemon off;"

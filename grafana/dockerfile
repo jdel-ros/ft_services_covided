@@ -4,11 +4,13 @@ RUN apk update
 RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 RUN apk add grafana
 RUN apk add telegraf
+RUN mkdir /etc/telegraf 
+ADD srcs/telegraf.conf /etc/telegraf/
 
 ADD		srcs/setup.sh .
 RUN		chmod 777 setup.sh
 ADD ./srcs/datasource.yaml /usr/share/grafana/conf/provisioning/datasources/
-ADD ./srcs/dashboard.yaml /usr/share/grafana/conf/provisioning/dashboard/
+ADD ./srcs/dashboard.yaml /usr/share/grafana/conf/provisioning/dashboards/
 ADD ./dashboards/*.json /usr/share/grafana/conf/provisioning/dashboards/
 
 EXPOSE 3000

@@ -103,7 +103,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "wordpress"
 			  }
 			]
 		  }
@@ -193,7 +193,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "wordpress"
 			  }
 			]
 		  }
@@ -288,7 +288,7 @@
 			  {
 				"key": "host",
 				"operator": "=",
-				"value": "nginx"
+				"value": "wordpress"
 			  }
 			]
 		  }
@@ -347,7 +347,7 @@
 	},
 	"timepicker": {},
 	"timezone": "",
-	"title": "nginx",
+	"title": "wordpress",
 	"uid": null,
 	"version": 1
   }
