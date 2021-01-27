@@ -9,6 +9,7 @@ ADD		srcs/setup.sh .
 RUN		chmod 777 setup.sh
 ADD ./srcs/datasource.yaml /usr/share/grafana/conf/provisioning/datasources/
 ADD ./srcs/dashboard.yaml /usr/share/grafana/conf/provisioning/dashboard/
+ADD ./dashboards/*.json /usr/share/grafana/conf/provisioning/dashboards/
 
 EXPOSE 3000
 

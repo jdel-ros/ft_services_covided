@@ -7,6 +7,12 @@ if cd usr/share/grafana; then
 	fi
 fi
 
+#change password
+if  cd /usr/share/grafana ; then
+	if ! grafana-cli admin reset-admin-password 'admin'
+		exit 1
+	fi
+fi
 #while grafana don't crash
 while true;
 do
