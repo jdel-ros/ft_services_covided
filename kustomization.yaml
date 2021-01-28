@@ -6,3 +6,4 @@ resources:
   - mysql/mysql.yaml
   - grafana/grafana.yaml
   - influxdb/influxdb.yaml
+  - ftps/ftps.yaml
