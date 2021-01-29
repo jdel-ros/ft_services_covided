@@ -1,6 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/01/29 08:50:37 by jdel-ros          #+#    #+#              #
+#    Updated: 2021/01/29 08:58:48 by jdel-ros         ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
 FROM alpine:3.12.3
 
-#update and install utils
+#Update and install utils
 RUN apk update
 RUN apk add openrc
 RUN apk add vsftpd

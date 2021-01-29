@@ -1,12 +1,19 @@
-#!/bin/sh
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    setup.sh                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/01/29 08:57:55 by jdel-ros          #+#    #+#              #
+#    Updated: 2021/01/29 10:19:44 by jdel-ros         ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
+# !/bin/sh
+rc-service influxdb start
 telegraf &
-# rc-service influxdb start
-/usr/sbin/influxd & sleep 3
-# tail -f /dev/null
-# influx -execute "CREATE DATABASE grafana"
-# influx -execute "CREATE USER graf_admin WITH PASSWORD 'admin'"
-# influx -execute "GRANT ALL ON grafana TO graf_admin"
-# sleep 2
+sleep 2
 
 while true;
 do
@@ -18,3 +25,26 @@ do
 	fi
 	sleep 2
 done
+
+
+#!/bin/sh
+
+# echo "Starting telegraf .."
+# telegraf &
+
+# echo "Starting InfluxDB .."
+# rc-service influxdb 
+# sleep 2
+
+# while true;
+# do
+# 	if ! pgrep influx >/dev/null 2>&1 ; then
+# 		exit 1
+# 	fi
+# 	if ! pgrep telegraf >/dev/null 2>&1 ; then
+# 		exit 1
+# 	fi
+# 	sleep 2
+# done
+
+# done

@@ -1,5 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/01/29 08:58:43 by jdel-ros          #+#    #+#              #
+#    Updated: 2021/01/29 08:58:43 by jdel-ros         ###   ########lyon.fr    #
+#                                                                              #
+# **************************************************************************** #
+
 FROM	alpine:3.12.3
 
+#Update and install utils & Telegraf
 RUN apk update
 RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 RUN apk add grafana
@@ -7,6 +20,7 @@ RUN apk add telegraf
 RUN mkdir /etc/telegraf 
 ADD srcs/telegraf.conf /etc/telegraf/
 
+#Add conf
 ADD		srcs/setup.sh .
 RUN		chmod 777 setup.sh
 ADD ./srcs/datasource.yaml /usr/share/grafana/conf/provisioning/datasources/
