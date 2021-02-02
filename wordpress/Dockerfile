@@ -6,7 +6,7 @@
 #    By: jdel-ros <jdel-ros@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/18 13:47:40 by jdel-ros          #+#    #+#              #
-#    Updated: 2021/01/29 08:56:09 by jdel-ros         ###   ########lyon.fr    #
+#    Updated: 2021/02/02 10:13:02 by jdel-ros         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RUN apk update ; \
 	apk add php7-mbstring php7-json php7-session
 ADD	srcs/nginx.conf /etc/nginx/
 
-#Telegraf
+# #Telegraf
 RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 RUN apk add telegraf
 RUN mkdir /etc/telegraf 
