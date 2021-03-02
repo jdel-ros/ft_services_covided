@@ -1,4 +1,4 @@
-salutknsdapiVersion: v1
+apiVersion: v1
 kind: ConfigMap
 metadata:
   namespace: metallb-system
